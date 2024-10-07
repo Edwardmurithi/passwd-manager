@@ -16,6 +16,8 @@ def view_existing_passwords():
                 print(line.rstrip())
     except FileNotFoundError:
         print("\nFile not found!!")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def add_new_acount():
