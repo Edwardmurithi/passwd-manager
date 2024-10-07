@@ -9,27 +9,32 @@ def prompt_user():
 
 
 def view_existing_passwords():
+    print(f"{'Your accounts':>^30}\n")
     try:
         with open('account_password.txt', 'r') as file_object:
             for line in file_object:
                 print(line.rstrip())
     except FileNotFoundError:
-        print("File not found!!")
+        print("\nFile not found!!")
 
 
-def add_new_password():
+def add_new_acount():
     """Allow user to add a new password."""
-    print(f"{'Add New Account':*^50}")
-    print(f"{'Press Q to quit':^50}")
+    print(f"{'Add New Account':>^50}")
+    print(f"{'Press Q go back':^50}")
 
     while True:
         account = input(f"\n{'Account Name: ':>20}")
+        if account.lower() == 'q':
+            main()
         password = input(f"{'Password: ':>20}")
+        if account.lower() == 'q':
+            main()
         with open('account_password.txt', 'a', encoding='utf-8') as file_object:
-            file_object.write(account +  password + '\n')
+            file_object.write(account + f"{password:>20}" + '\n')
 
 def pause_and_return():
-    input("Press Enter to return to main Menu.")
+    input("\nPress Enter to return to main Menu.")
     clear_screen()
 
 def clear_screen():
@@ -39,15 +44,15 @@ def clear_screen():
 
 def quit_application():
     """Quits the application"""
-    print("\nExiting the Application...")
+    print(f"\n{'Exiting the Application...':>40}")
     time.sleep(2)
     quit()
 
 def main():
     clear_screen()
     while True:
-        print(f'\n{"WELCOME TO PASSWORD MANAGER":*^50}')
-        print(f"\n{'1. Add a new account':^49}")
+        print(f'\n{"WELCOME TO PASSWORD MANAGER":>^50}')
+        print(f"\n{'1. Add a new account🔑':^50}")
         print(f"{'2. View existing accounts':^54}")
         print(f"{'3. Quit':^35}")
 
@@ -55,7 +60,7 @@ def main():
             option = int(input(f"{'Select an Option: ':>32}"))
             if option == 1:
                 clear_screen()
-                add_new_password()
+                add_new_acount()
                 pause_and_return()
             elif option == 2:
                 clear_screen()
