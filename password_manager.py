@@ -20,7 +20,7 @@ def view_existing_passwords():
         print(f"Error: {e}")
 
 
-def add_new_acount():
+def add_new_account():
     """Allow user to add a new password."""
     print(f"{'Add New Account':>^50}")
     print(f"{'Press Q go back':^50}")
@@ -62,7 +62,7 @@ def main():
             option = int(input(f"{'Select an Option: ':>32}"))
             if option == 1:
                 clear_screen()
-                add_new_acount()
+                add_new_account()
                 pause_and_return()
             elif option == 2:
                 clear_screen()
