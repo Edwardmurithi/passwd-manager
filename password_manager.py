@@ -4,10 +4,6 @@ import sys
 from cryptography.fernet import Fernet
 
 
-def prompt_user():
-    input("Enter your Master password: ")
-
-
 def view_existing_passwords():
     print(f"{'Your accounts':>^30}\n")
     try:
@@ -53,7 +49,7 @@ def quit_application():
 def main():
     clear_screen()
     while True:
-        print(f'\n{"WELCOME TO PASSWORD MANAGER":>^50}')
+        print(f'\n{"WELCOME TO PASSWORD MANAGER":*^50}')
         print(f"\n{'1. Add a new account🔑':^50}")
         print(f"{'2. View existing accounts':^54}")
         print(f"{'3. Quit':^35}")
